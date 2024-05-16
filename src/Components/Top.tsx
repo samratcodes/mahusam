@@ -9,7 +9,6 @@ const Top = () => {
   const apiKey = `adf65e2fa7e0de243f0a7adaec8b6839`;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${Search}&appid=${apiKey}&units=metric`;
   
-  // Fetch data when Location changes
   const { loading, results, error } = useDataFetching(url);
 
   const handleSearchClick = (e: MouseEvent) => {
