@@ -10,7 +10,7 @@ const Top = () => {
 
   const handleSearchClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    dispatch(fetchWeather(location)); 
+    dispatch(fetchWeather(location) as any); // Cast action to any
   }
 
   return (
