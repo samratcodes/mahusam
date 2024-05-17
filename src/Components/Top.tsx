@@ -5,16 +5,10 @@ import useDataFetching from "../Hooks/useFetching";
 
 const Top = () => {
   const [Location, setLocation] = useState('Kathmandu');
-  const[Search ,setSearch]=useState('Kathmandu');
-  const apiKey = `adf65e2fa7e0de243f0a7adaec8b6839`;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${Search}&appid=${apiKey}&units=metric`;
-  
-  const { loading, results, error } = useDataFetching(url);
 
   const handleSearchClick = (e: MouseEvent) => {
     e.preventDefault();
-    setSearch(Location);
-    console.log(results);
+
   }
 
   return (
