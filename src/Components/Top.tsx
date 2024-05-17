@@ -1,20 +1,16 @@
 import { useState, MouseEvent } from "react";
 import Logo from '../assets/Logo.png';
 import { FaSearch } from "react-icons/fa";
-import useDataFetching from "../Hooks/useFetching";
+import { useDispatch } from 'react-redux';
+import { fetchWeather } from "../feature/Weather/Weather";
 
 const Top = () => {
+  const dispatch = useDispatch();
   const [location, setLocation] = useState<string>('Kathmandu');
-  const [search, setSearch] = useState<string>('Kathmandu');
-  const apiKey = `adf65e2fa7e0de243f0a7adaec8b6839`;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${apiKey}&units=metric`;
-  
-  const { results } = useDataFetching(url);
 
   const handleSearchClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setSearch(location);
-    console.log(results);
+    dispatch(fetchWeather(location)); 
   }
 
   return (
