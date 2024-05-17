@@ -1,30 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Logo from '../assets/Logo.png';
 import { FaSearch } from "react-icons/fa";
-import useDataFetching from "../Hooks/useFetching";
 
 const Top = () => {
-  const [Location, setLocation] = useState('Kathmandu');
+  const [location, setLocation] = useState('Kathmandu');
 
-  const handleSearchClick = (e: MouseEvent) => {
+  const handleSearchClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
-  }
+    // Handle search click logic
+  };
 
   return (
-    <div className='flex  '>
-      <div className="flex flex-col justify-center items-center ">
-        <img src={Logo} alt="Logo" className="mt-1 w-16 sm:w-24 rounded-full"/>
-        <h1 className=' text-sm sm:text-xl text-white font-bold '> Mahusam</h1>
+    <div className='flex'>
+      <div className="flex flex-col justify-center items-center">
+        <img src={Logo} alt="Logo" className="mt-1 w-16 sm:w-24 rounded-full" />
+        <h1 className='text-sm sm:text-xl text-white font-bold'>Mahusam</h1>
       </div>
       <form className="w-full flex justify-center py-2 sm:p-4" id="form">
         <div className="flex items-center h-8 px-2 border border-white rounded-2xl">
           <input
-            className="bg-transparent border-0 w-56 sm:w-96 h-8 text-white focus:outline-none text-1xl  placeholder-gray-200"
+            className="bg-transparent border-0 w-56 sm:w-96 h-8 text-white focus:outline-none text-1xl placeholder-gray-200"
             type="text"
             name="Search"
             id="Search"
-            value={Location}
+            value={location}
             onChange={(e) => { setLocation(e.target.value) }}
             placeholder='Search location . . .'
           />

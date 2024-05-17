@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useState, useEffect } from 'react';
 import clear from '../assets/clear.png';
 import clouds from '../assets/clouds.png';
 import drizzle from '../assets/drizzle.png';
@@ -61,7 +61,6 @@ function Main() {
   const [weather, setWeather] = useState<Weather | null>(null);
 
   useEffect(() => {
-    // Simulate a data fetching process with dummy data
     setWeather(dummyWeather);
   }, []);
 
@@ -92,7 +91,7 @@ function Main() {
           {weather ? (
             <div className="w-full flex flex-col items-center justify-between">
               <div className="flex items-center justify-center">
-                <img src={getWeatherIcon(weather.weather[0].main)} alt={weather.weather[0].main} className="w-48 sm:w-52" />
+                <img src={snow} alt={weather.weather[0].main} className="w-48 sm:w-52" />
               </div>
               <div className="w-full sm:w-4/5 flex flex-col justify-between items-end bg-white my-3 p-4 rounded-3xl md:flex-row">
                 <div className="flex flex-col">
