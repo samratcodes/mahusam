@@ -1,8 +1,8 @@
 import  { useState, useEffect } from 'react';
-import clear from '../assets/clear.png';
-import clouds from '../assets/clouds.png';
-import drizzle from '../assets/drizzle.png';
-import rain from '../assets/rain.png';
+// import clear from '../assets/clear.png';
+// import clouds from '../assets/clouds.png';
+// import drizzle from '../assets/drizzle.png';
+// import rain from '../assets/rain.png';
 import snow from '../assets/snow.png';
 import humidityIcon from '../assets/humidity.png';
 import wind from '../assets/wind.png';
