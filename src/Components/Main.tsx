@@ -64,22 +64,22 @@ function Main() {
     setWeather(dummyWeather);
   }, []);
 
-  const getWeatherIcon = (weatherMain: string) => {
-    switch (weatherMain) {
-      case 'Clear':
-        return clear;
-      case 'Clouds':
-        return clouds;
-      case 'Drizzle':
-        return drizzle;
-      case 'Rain':
-        return rain;
-      case 'Snow':
-        return snow;
-      default:
-        return null;
-    }
-  };
+  // const getWeatherIcon = (weatherMain: string) => {
+  //   switch (weatherMain) {
+  //     case 'Clear':
+  //       return clear;
+  //     case 'Clouds':
+  //       return clouds;
+  //     case 'Drizzle':
+  //       return drizzle;
+  //     case 'Rain':
+  //       return rain;
+  //     case 'Snow':
+  //       return snow;
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   return (
     <div className="flex justify-center container px-4">
