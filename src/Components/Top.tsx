@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import Logo from '../assets/Logo.png';
 import { FaSearch } from "react-icons/fa";
+import useDataFetching from "../Hooks/useFetching";
 
 const Top = () => {
-  const [location, setLocation] = useState('Kathmandu');
+  const [location, setLocation] = useState<string>('Kathmandu');
+  const [search, setSearch] = useState<string>('Kathmandu');
+  const apiKey = `adf65e2fa7e0de243f0a7adaec8b6839`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${apiKey}&units=metric`;
+  
+  const { results } = useDataFetching(url);
 
-  const handleSearchClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSearchClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    // Handle search click logic
-  };
+    setSearch(location);
+    console.log(results);
+  }
 
   return (
     <div className='flex'>
