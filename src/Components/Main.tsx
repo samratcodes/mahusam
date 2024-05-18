@@ -34,9 +34,32 @@ interface Weather {
   visibility: number;
 }
 
+const dummyWeatherData: Weather = {
+  name: "London",
+  sys: {
+    country: "GB",
+  },
+  weather: [
+    {
+      main: "Clouds",
+      description: "broken clouds",
+    }
+  ],
+  main: {
+    temp: 15,
+    feels_like: 13,
+    pressure: 1015,
+    humidity: 72,
+  },
+  wind: {
+    speed: 5,
+  },
+  visibility: 10000,
+};
+
 const Main = () => {
   // Fetch weather data from Redux store
-  const weatherData: Weather | null = useSelector((state: any) => state.weather.weatherData);
+  const weatherData: Weather = useSelector((state: any) => state.weather.weatherData) || dummyWeatherData;
 
   // Function to get weather icon based on weather condition
   const getWeatherIcon = (weatherMain: string): string | undefined => {
@@ -57,18 +80,18 @@ const Main = () => {
   };
 
   return (
-    <div className="flex justify-center container px-4">
-      <div className="w-full md:w-4/5 my-6 p-2 sm:p-4 bg-gray-300 rounded-md">
+    <div className="flex justify-center container">
+      <div className="w-full md:w-4/5 mb-6 p-2 sm:p-4 bg-white rounded-3xl">
         <div className="sm:p-6">
           <h1 className="text-4xl font-semibold text-center mb-6 text-blue-800">
-            Weather in {weatherData?.name}, {weatherData?.sys.country}
+            Weather in {weatherData.name}, {weatherData.sys.country}
           </h1>
           {weatherData ? (
             <div className="w-full flex flex-col items-center justify-between">
               <div className="flex items-center justify-center">
                 <img src={getWeatherIcon(weatherData.weather[0].main)} alt={weatherData.weather[0].main} className="w-48 sm:w-52" />
               </div>
-              <div className="w-full sm:w-4/5 flex flex-col justify-between items-end bg-white my-3 p-4 rounded-3xl md:flex-row">
+              <div className="w-full sm:w-4/5 flex flex-col justify-between items-end bg-gray-200 my-3 p-4 rounded-3xl md:flex-row">
                 <div className="flex flex-col">
                   <p className="text-2xl flex justify-center items-center font-semibold text-gray-600 m-2">
                     <FaTemperatureHigh className='mr-2 text-red-600' />Temperature: {weatherData.main.temp} °C

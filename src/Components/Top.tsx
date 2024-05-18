@@ -15,7 +15,7 @@ const Top = () => {
 
   return (
     <div className='flex'>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center ml-2">
         <img src={Logo} alt="Logo" className="mt-1 w-16 sm:w-24 rounded-full" />
         <h1 className='text-sm sm:text-xl text-white font-bold'>Mahusam</h1>
       </div>
