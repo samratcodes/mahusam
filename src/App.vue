@@ -82,14 +82,7 @@ import mist from '@/assets/mist.png';
 const searchLocation = ref('');
 const weatherData = ref(null);
 
-const images = {
-  Clear: clear,
-  Rain: rain,
-  Snow: snow,
-  Drizzle: drizzle,
-  Clouds: clouds,
-  Mist: mist,
-};
+
 
 const fetchNew = async (e) => {
   e.preventDefault();
@@ -111,9 +104,22 @@ onMounted(async () => {
     console.error('Error fetching data:', error);
   }
 });
-
+const images = {
+  Clear: clear,
+  Rain: rain,
+  Snow: snow,
+  Drizzle: drizzle,
+  Clouds: clouds,
+  Mist: mist,
+};
 const getImage = (weather) => {
   console.log(weather);
-  return images[weather] || '@/assets/clear.png' ;
+  
+  if (!images[weather]) {
+    console.log('No image found');
+    return images.Clear;
+  }
+
+  return images[weather]  ;
 };
 </script>
