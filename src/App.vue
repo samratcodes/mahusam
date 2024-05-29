@@ -114,6 +114,6 @@ onMounted(async () => {
 
 const getImage = (weather) => {
   console.log(weather);
-  return images[weather] ;
+  return images[weather] || '@/assets/clear.png' ;
 };
 </script>
